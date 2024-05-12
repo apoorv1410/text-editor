@@ -1,9 +1,14 @@
 ## Text Editor
 
 - Tech Stack: HTML, CSS, React, Tailwind, Node
-- Packages: @lexical/react
+- Packages: @lexical/react ([Ref](https://lexical.dev/docs/intro))
 
-### Setup
+### How to use this in another ReactJS project
+- integrate Lexical in your project: `npm install --save lexical @lexical/react`
+- In your existing React project, import both the `public` and `src` files from this projects (Both the TS and CSS files)
+- import the `TextEditor` file from src/components and use it wherever you want to add the text editor
+
+### Setup from scratch
 
 - setup node version: `nvm use 20`
 - setup ReactJS + Typescript: `npx create-react-app text-editor --template typescript`
