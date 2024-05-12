@@ -1,3 +1,11 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
 import {useLexicalComposerContext} from '@lexical/react/LexicalComposerContext';
 import {mergeRegister} from '@lexical/utils';
 import './Toolbar.css'
@@ -76,7 +84,7 @@ export default function Toolbar() {
   }, [editor, $updateToolbar]);
 
   return (
-    <div className="toolbar" ref={toolbarRef}>
+    <div className="toolbar z-10 sticky top-0" ref={toolbarRef}>
       <button
         disabled={!canUndo}
         onClick={() => {
