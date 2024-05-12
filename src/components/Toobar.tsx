@@ -66,6 +66,7 @@ import {
 import {useCallback, useEffect, useState} from 'react';
 
 import DropDown, {DropDownItem} from './DropDown';
+import DropdownColorPicker from './DropdownColorPicker';
 import {getSelectedNode} from '../utils/getSelectedNode';
 import {sanitizeUrl} from '../utils/url';
 import FontSize from './FontSize';
@@ -498,6 +499,8 @@ export default function ToolbarPlugin(): JSX.Element {
     null,
   );
   const [fontSize, setFontSize] = useState<string>('15px');
+  const [fontColor, setFontColor] = useState<string>('#000');
+  const [bgColor, setBgColor] = useState<string>('#fff');
   const [fontFamily, setFontFamily] = useState<string>('Arial');
   const [elementFormat, setElementFormat] = useState<ElementFormatType>('left');
   const [isLink, setIsLink] = useState(false);
@@ -581,6 +584,17 @@ export default function ToolbarPlugin(): JSX.Element {
           }
         }
       }
+      // Handle buttons
+      setFontColor(
+        $getSelectionStyleValueForProperty(selection, 'color', '#000'),
+      );
+      setBgColor(
+        $getSelectionStyleValueForProperty(
+          selection,
+          'background-color',
+          '#fff',
+        ),
+      );
       setFontFamily(
         $getSelectionStyleValueForProperty(selection, 'font-family', 'Arial'),
       );
@@ -672,6 +686,35 @@ export default function ToolbarPlugin(): JSX.Element {
       COMMAND_PRIORITY_NORMAL,
     );
   }, [activeEditor, isLink]);
+
+  const applyStyleText = useCallback(
+    (styles: Record<string, string>, skipHistoryStack?: boolean) => {
+      activeEditor.update(
+        () => {
+          const selection = $getSelection();
+          if (selection !== null) {
+            $patchStyleText(selection, styles);
+          }
+        },
+        skipHistoryStack ? {tag: 'historic'} : {},
+      );
+    },
+    [activeEditor],
+  );
+
+  const onFontColorSelect = useCallback(
+    (value: string, skipHistoryStack: boolean) => {
+      applyStyleText({color: value}, skipHistoryStack);
+    },
+    [applyStyleText],
+  );
+
+  const onBgColorSelect = useCallback(
+    (value: string, skipHistoryStack: boolean) => {
+      applyStyleText({'background-color': value}, skipHistoryStack);
+    },
+    [applyStyleText],
+  );
 
   const insertLink = useCallback(() => {
     if (!isLink) {
@@ -825,6 +868,24 @@ export default function ToolbarPlugin(): JSX.Element {
             <i className="format link" />
           </button>
           <Divider />
+          <DropdownColorPicker
+            disabled={!isEditable}
+            buttonClassName="toolbar-item color-picker"
+            buttonAriaLabel="Formatting text color"
+            buttonIconClassName="icon font-color"
+            color={fontColor}
+            onChange={onFontColorSelect}
+            title="text color"
+          />
+          <DropdownColorPicker
+            disabled={!isEditable}
+            buttonClassName="toolbar-item color-picker"
+            buttonAriaLabel="Formatting background color"
+            buttonIconClassName="icon bg-color"
+            color={bgColor}
+            onChange={onBgColorSelect}
+            title="bg color"
+          />
         </>
       )}
       <Divider />
