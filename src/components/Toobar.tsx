@@ -23,6 +23,10 @@ import {
 } from '@lexical/list';
 import {useLexicalComposerContext} from '@lexical/react/LexicalComposerContext';
 import {$isDecoratorBlockNode} from '@lexical/react/LexicalDecoratorBlockNode';
+import {INSERT_HORIZONTAL_RULE_COMMAND} from '@lexical/react/LexicalHorizontalRuleNode';
+import {INSERT_PAGE_BREAK} from './PageBreak';
+import { InsertImageDialog } from './InsertImageDialog';
+
 import {
   $createHeadingNode,
   $createQuoteNode,
@@ -68,12 +72,14 @@ import {
   UNDO_COMMAND,
 } from 'lexical';
 import {useCallback, useEffect, useState} from 'react';
+import ModalHandler from './ModalHandler';
 
 import DropDown, {DropDownItem} from './DropDown';
 import DropdownColorPicker from './DropdownColorPicker';
 import {getSelectedNode} from '../utils/getSelectedNode';
 import {sanitizeUrl} from '../utils/url';
 import FontSize from './FontSize';
+import { InsertTableDialog } from './InsertTableDialog';
 
 const blockTypeToBlockName = {
   bullet: 'Bulleted List',
@@ -517,6 +523,7 @@ export default function ToolbarPlugin(): JSX.Element {
   const [isCode, setIsCode] = useState(false);
   const [canUndo, setCanUndo] = useState(false);
   const [canRedo, setCanRedo] = useState(false);
+  const [modal, showModal] = ModalHandler();
   const [isRTL, setIsRTL] = useState(false);
   const [codeLanguage, setCodeLanguage] = useState<string>('');
   const [isEditable, setIsEditable] = useState(() => true);
@@ -1005,6 +1012,59 @@ export default function ToolbarPlugin(): JSX.Element {
               <span className="text">Clear Formatting</span>
             </DropDownItem>
           </DropDown>
+          <Divider />
+          <DropDown
+            disabled={!isEditable}
+            buttonClassName="toolbar-item spaced"
+            buttonLabel="Insert"
+            buttonAriaLabel="Insert specialized editor node"
+            buttonIconClassName="icon plus">
+            <DropDownItem
+              onClick={() => {
+                activeEditor.dispatchCommand(
+                  INSERT_HORIZONTAL_RULE_COMMAND,
+                  undefined,
+                );
+              }}
+              className="item">
+              <i className="icon horizontal-rule" />
+              <span className="text">Horizontal Rule</span>
+            </DropDownItem>
+            <DropDownItem
+              onClick={() => {
+                activeEditor.dispatchCommand(INSERT_PAGE_BREAK, undefined);
+              }}
+              className="item">
+              <i className="icon page-break" />
+              <span className="text">Page Break</span>
+            </DropDownItem>
+            <DropDownItem
+              onClick={() => {
+                showModal('Insert Image', (onClose) => (
+                  <InsertImageDialog
+                    activeEditor={activeEditor}
+                    onClose={onClose}
+                  />
+                ));
+              }}
+              className="item">
+              <i className="icon image" />
+              <span className="text">Image</span>
+            </DropDownItem>
+            <DropDownItem
+              onClick={() => {
+                showModal('Insert Table', (onClose) => (
+                  <InsertTableDialog
+                    activeEditor={activeEditor}
+                    onClose={onClose}
+                  />
+                ));
+              }}
+              className="item">
+              <i className="icon table" />
+              <span className="text">Table</span>
+            </DropDownItem>
+          </DropDown>
         </>
       )}
       <Divider />
@@ -1014,6 +1074,8 @@ export default function ToolbarPlugin(): JSX.Element {
         editor={editor}
         isRTL={isRTL}
       />
+
+      {modal}
     </div>
   );
 }

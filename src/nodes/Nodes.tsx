@@ -15,6 +15,8 @@ import {ListItemNode, ListNode} from '@lexical/list';
 import {MarkNode} from '@lexical/mark';
 import {HorizontalRuleNode} from '@lexical/react/LexicalHorizontalRuleNode';
 import {HeadingNode, QuoteNode} from '@lexical/rich-text';
+import {TableCellNode, TableNode, TableRowNode} from '@lexical/table';
+import {ImageNode} from './ImageNode';
 
 const PlaygroundNodes: Array<Klass<LexicalNode>> = [
     CodeHighlightNode,
@@ -27,7 +29,11 @@ const PlaygroundNodes: Array<Klass<LexicalNode>> = [
     ListItemNode,
     QuoteNode,
     CodeNode,
-    HorizontalRuleNode
+    HorizontalRuleNode,
+    TableNode,
+    TableCellNode,
+    TableRowNode,
+    ImageNode
 ];
 
 export default PlaygroundNodes;

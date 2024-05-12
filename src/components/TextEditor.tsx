@@ -39,7 +39,7 @@ export default function App() {
         <Toolbar />
         <div className="bg-white relative">
           <RichTextPlugin
-            contentEditable={<ContentEditable className="editor-input py-4 px-2" />}
+            contentEditable={<ContentEditable className="editor-input py-4 px-2 outline-none" />}
             placeholder={<Placeholder />}
             ErrorBoundary={LexicalErrorBoundary}
           />
