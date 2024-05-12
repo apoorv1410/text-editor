@@ -12,6 +12,8 @@ import {ContentEditable} from '@lexical/react/LexicalContentEditable';
 import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
 import {HistoryPlugin} from '@lexical/react/LexicalHistoryPlugin';
 import {RichTextPlugin} from '@lexical/react/LexicalRichTextPlugin';
+
+import Nodes from '../nodes/Nodes';
 import Toolbar from './Toobar';
 import TreeView from './TreeView';
 import './TextEditor.css'
@@ -23,7 +25,7 @@ function Placeholder() {
 
 const editorConfig = {
   namespace: 'React.js Demo',
-  nodes: [],
+  nodes: [...Nodes],
   // Handling of errors during update
   onError(error: Error) {
     throw error;
