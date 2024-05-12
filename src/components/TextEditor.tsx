@@ -1,35 +1,41 @@
 import {AutoFocusPlugin} from '@lexical/react/LexicalAutoFocusPlugin';
 import {LexicalComposer} from '@lexical/react/LexicalComposer';
-import {RichTextPlugin} from '@lexical/react/LexicalRichTextPlugin';
 import {ContentEditable} from '@lexical/react/LexicalContentEditable';
-import {HistoryPlugin} from '@lexical/react/LexicalHistoryPlugin';
 import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
+import {HistoryPlugin} from '@lexical/react/LexicalHistoryPlugin';
+import {RichTextPlugin} from '@lexical/react/LexicalRichTextPlugin';
+import Toolbar from './Toobar';
+import './TextEditor.css'
 
-const theme = {}
-
-// Catch any errors that occur during Lexical updates and log them
-// or throw them as needed. If you don't throw them, Lexical will
-// try to recover gracefully without losing user data.
-function onError(error: any) {
-  console.error(error);
+// function to show the placeholder text in empty editor
+function Placeholder() {
+  return <div className="editor-placeholder text-slate-400">Enter some rich text...</div>;
 }
 
-export default function TextEditor() {
-  const initialConfig = {
-    namespace: 'TextEditor',
-    theme,
-    onError,
-  };
+const editorConfig = {
+  namespace: 'React.js Demo',
+  nodes: [],
+  // Handling of errors during update
+  onError(error: Error) {
+    throw error;
+  }
+};
 
+export default function App() {
   return (
-    <LexicalComposer initialConfig={initialConfig}>
-      <RichTextPlugin
-        contentEditable={<ContentEditable />}
-        placeholder={<div>Enter some text...</div>}
-        ErrorBoundary={LexicalErrorBoundary}
-      />
-      <HistoryPlugin />
-      <AutoFocusPlugin />
+    <LexicalComposer initialConfig={editorConfig}>
+      <div className="editor-container">
+        <Toolbar />
+        <div className="bg-white relative">
+          <RichTextPlugin
+            contentEditable={<ContentEditable className="editor-input py-4 px-2" />}
+            placeholder={<Placeholder />}
+            ErrorBoundary={LexicalErrorBoundary}
+          />
+          <HistoryPlugin />
+          <AutoFocusPlugin />
+        </div>
+      </div>
     </LexicalComposer>
   );
 }

@@ -4,7 +4,7 @@ import TextEditor from './components/TextEditor';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App p-4">
       <TextEditor></TextEditor>
     </div>
   );
