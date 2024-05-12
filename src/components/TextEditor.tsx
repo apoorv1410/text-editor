@@ -1,3 +1,11 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
 import {AutoFocusPlugin} from '@lexical/react/LexicalAutoFocusPlugin';
 import {LexicalComposer} from '@lexical/react/LexicalComposer';
 import {ContentEditable} from '@lexical/react/LexicalContentEditable';
@@ -5,6 +13,7 @@ import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
 import {HistoryPlugin} from '@lexical/react/LexicalHistoryPlugin';
 import {RichTextPlugin} from '@lexical/react/LexicalRichTextPlugin';
 import Toolbar from './Toobar';
+import TreeView from './TreeView';
 import './TextEditor.css'
 
 // function to show the placeholder text in empty editor
@@ -34,6 +43,7 @@ export default function App() {
           />
           <HistoryPlugin />
           <AutoFocusPlugin />
+          <TreeView />
         </div>
       </div>
     </LexicalComposer>
