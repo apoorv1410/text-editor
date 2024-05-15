@@ -18,9 +18,12 @@ import {ListPlugin} from '@lexical/react/LexicalListPlugin';
 import {CheckListPlugin} from '@lexical/react/LexicalCheckListPlugin';
 import LexicalClickableLinkPlugin from '@lexical/react/LexicalClickableLinkPlugin';
 import {HorizontalRulePlugin} from '@lexical/react/LexicalHorizontalRulePlugin';
+import ImagesPlugin from './Images';
 import {TablePlugin} from '@lexical/react/LexicalTablePlugin';
 import TableCellActionMenu from './TableActionMenu';
 import TableCellResizer from './TableCellResizer';
+import Link from './Link';
+import ComponentPicker from './ComponentPicker';
 
 import Nodes from '../nodes/Nodes';
 import Toolbar from './Toobar';
@@ -40,7 +43,7 @@ const editorConfig = {
   onError(error: Error) {
     throw error;
   },
-  theme: PlaygroundEditorTheme
+  theme: PlaygroundEditorTheme,
 };
 
 export default function App() {
@@ -82,7 +85,7 @@ export default function App() {
           <RichTextPlugin
             contentEditable={
               <div className="editor-scroller">
-                <div className="editor py-2 px-8" ref={onRef}>
+                <div className="editor py-2 px-7" ref={onRef}>
                   <ContentEditable className='h-full outline-0' />
                 </div>
               </div>
@@ -95,8 +98,11 @@ export default function App() {
           <LexicalClickableLinkPlugin />
           <HorizontalRulePlugin />
           <PageBreak />
+          <ImagesPlugin />
           <TableCellResizer />
           <HistoryPlugin />
+          <Link />
+          <ComponentPicker />
           <AutoFocusPlugin />
           <ClearEditorPlugin />
           <TreeView />
