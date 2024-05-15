@@ -13,21 +13,22 @@ import {ContentEditable} from '@lexical/react/LexicalContentEditable';
 import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
 import {HistoryPlugin} from '@lexical/react/LexicalHistoryPlugin';
 import {RichTextPlugin} from '@lexical/react/LexicalRichTextPlugin';
+import {useEffect, useState} from 'react';
 import {ListPlugin} from '@lexical/react/LexicalListPlugin';
 import {CheckListPlugin} from '@lexical/react/LexicalCheckListPlugin';
+import LexicalClickableLinkPlugin from '@lexical/react/LexicalClickableLinkPlugin';
 import {HorizontalRulePlugin} from '@lexical/react/LexicalHorizontalRulePlugin';
 
 import Nodes from '../nodes/Nodes';
 import Toolbar from './Toobar';
+import Placeholder from './Placeholder';
+import FloatingLinkEditor from './FloatingLinkEditor';
+import FloatingTextFormatToolbar from './FloatingTextToolbar';
 import TreeView from './TreeView';
 import PageBreak from './PageBreak';
 import './TextEditor.css'
 import PlaygroundEditorTheme from '../themes/PlaygroundEditorTheme';
 
-// function to show the placeholder text in empty editor
-function Placeholder() {
-  return <div className="editor-placeholder text-slate-400">Enter some rich text...</div>;
-}
 
 const editorConfig = {
   namespace: 'React.js Demo',
@@ -40,24 +41,74 @@ const editorConfig = {
 };
 
 export default function App() {
+  const placeHolderText = "Enter Some Rich Text!"
+  const [floatingAnchorElem, setFloatingAnchorElem] = useState<HTMLDivElement | null>(null);
+  const [isSmallWidthViewport, setIsSmallWidthViewport] = useState<boolean>(false);
+  const [isLinkEditMode, setIsLinkEditMode] = useState<boolean>(false);
+
+
+  const onRef = (_floatingAnchorElem: HTMLDivElement) => {
+    if (_floatingAnchorElem !== null) {
+      setFloatingAnchorElem(_floatingAnchorElem);
+    }
+  };
+
+
+  useEffect(() => {
+    const updateViewPortWidth = () => {
+      const isNextSmallWidthViewport =
+        window.matchMedia('(max-width: 1025px)').matches;
+
+      if (isNextSmallWidthViewport !== isSmallWidthViewport) {
+        setIsSmallWidthViewport(isNextSmallWidthViewport);
+      }
+    };
+    updateViewPortWidth();
+    window.addEventListener('resize', updateViewPortWidth);
+
+    return () => {
+      window.removeEventListener('resize', updateViewPortWidth);
+    };
+  }, [isSmallWidthViewport]);
+
   return (
     <LexicalComposer initialConfig={editorConfig}>
       <div className="editor-container">
         <Toolbar />
         <div className="bg-white relative">
           <RichTextPlugin
-            contentEditable={<ContentEditable className="editor-input py-4 px-2 outline-none" />}
-            placeholder={<Placeholder />}
+            contentEditable={
+              <div className="editor-scroller">
+                <div className="editor py-2 px-8" ref={onRef}>
+                  <ContentEditable className='h-full outline-0' />
+                </div>
+              </div>
+            }
+            placeholder={<Placeholder>{placeHolderText}</Placeholder>}
             ErrorBoundary={LexicalErrorBoundary}
           />
           <ListPlugin />
           <CheckListPlugin />
+          <LexicalClickableLinkPlugin />
           <HorizontalRulePlugin />
           <PageBreak />
           <HistoryPlugin />
           <AutoFocusPlugin />
           <ClearEditorPlugin />
           <TreeView />
+          {floatingAnchorElem && !isSmallWidthViewport && (
+              <>
+                <FloatingLinkEditor
+                  anchorElem={floatingAnchorElem}
+                  isLinkEditMode={isLinkEditMode}
+                  setIsLinkEditMode={setIsLinkEditMode}
+                />
+                <FloatingTextFormatToolbar
+                  anchorElem={floatingAnchorElem}
+                  setIsLinkEditMode={setIsLinkEditMode}
+                />
+              </>
+            )}
         </div>
       </div>
     </LexicalComposer>
