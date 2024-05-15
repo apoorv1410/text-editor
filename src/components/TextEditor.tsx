@@ -18,6 +18,9 @@ import {ListPlugin} from '@lexical/react/LexicalListPlugin';
 import {CheckListPlugin} from '@lexical/react/LexicalCheckListPlugin';
 import LexicalClickableLinkPlugin from '@lexical/react/LexicalClickableLinkPlugin';
 import {HorizontalRulePlugin} from '@lexical/react/LexicalHorizontalRulePlugin';
+import {TablePlugin} from '@lexical/react/LexicalTablePlugin';
+import TableCellActionMenu from './TableActionMenu';
+import TableCellResizer from './TableCellResizer';
 
 import Nodes from '../nodes/Nodes';
 import Toolbar from './Toobar';
@@ -92,12 +95,18 @@ export default function App() {
           <LexicalClickableLinkPlugin />
           <HorizontalRulePlugin />
           <PageBreak />
+          <TableCellResizer />
           <HistoryPlugin />
           <AutoFocusPlugin />
           <ClearEditorPlugin />
           <TreeView />
+          <TablePlugin />
           {floatingAnchorElem && !isSmallWidthViewport && (
               <>
+                <TableCellActionMenu
+                  anchorElem={floatingAnchorElem}
+                  cellMerge={true}
+                />
                 <FloatingLinkEditor
                   anchorElem={floatingAnchorElem}
                   isLinkEditMode={isLinkEditMode}
