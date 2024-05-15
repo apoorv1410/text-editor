@@ -12,6 +12,7 @@ import {ContentEditable} from '@lexical/react/LexicalContentEditable';
 import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
 import {HistoryPlugin} from '@lexical/react/LexicalHistoryPlugin';
 import {RichTextPlugin} from '@lexical/react/LexicalRichTextPlugin';
+import {HorizontalRulePlugin} from '@lexical/react/LexicalHorizontalRulePlugin';
 
 import Nodes from '../nodes/Nodes';
 import Toolbar from './Toobar';
@@ -44,6 +45,7 @@ export default function App() {
             placeholder={<Placeholder />}
             ErrorBoundary={LexicalErrorBoundary}
           />
+          <HorizontalRulePlugin />
           <PageBreak />
           <HistoryPlugin />
           <AutoFocusPlugin />
