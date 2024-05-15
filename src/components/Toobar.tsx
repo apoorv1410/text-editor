@@ -26,6 +26,7 @@ import {$isDecoratorBlockNode} from '@lexical/react/LexicalDecoratorBlockNode';
 import {INSERT_HORIZONTAL_RULE_COMMAND} from '@lexical/react/LexicalHorizontalRuleNode';
 import {INSERT_PAGE_BREAK} from './PageBreak';
 import { InsertImageDialog } from './InsertImageDialog';
+import './Toolbar.css'
 
 import {
   $createHeadingNode,
