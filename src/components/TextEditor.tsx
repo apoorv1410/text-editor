@@ -23,7 +23,6 @@ import {TablePlugin} from '@lexical/react/LexicalTablePlugin';
 import TableCellActionMenu from './TableActionMenu';
 import TableCellResizer from './TableCellResizer';
 import Link from './Link';
-import ComponentPicker from './ComponentPicker';
 
 import Nodes from '../nodes/Nodes';
 import Toolbar from './Toobar';
@@ -102,7 +101,6 @@ export default function App() {
           <TableCellResizer />
           <HistoryPlugin />
           <Link />
-          <ComponentPicker />
           <AutoFocusPlugin />
           <ClearEditorPlugin />
           <TreeView />

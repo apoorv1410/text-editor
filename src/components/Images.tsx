@@ -41,7 +41,7 @@ import TextInput from './TextInput';
 export type InsertImagePayload = Readonly<ImagePayload>;
 
 const getDOMSelection = (targetWindow: Window | null): Selection | null =>
-    (targetWindow || window) ? (targetWindow || window).getSelection() : null;
+  (targetWindow || window).getSelection();
 
 export const INSERT_IMAGE_COMMAND: LexicalCommand<InsertImagePayload> =
   createCommand('INSERT_IMAGE_COMMAND');
@@ -103,7 +103,7 @@ export function InsertImageUploadedDialogBody({
       return '';
     };
     if (files !== null) {
-      // to-do add blob type check
+        // to-do add blob type check
       reader.readAsDataURL(files[0]);
     }
   };
