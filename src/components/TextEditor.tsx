@@ -18,7 +18,7 @@ import {ListPlugin} from '@lexical/react/LexicalListPlugin';
 import {CheckListPlugin} from '@lexical/react/LexicalCheckListPlugin';
 import LexicalClickableLinkPlugin from '@lexical/react/LexicalClickableLinkPlugin';
 import {HorizontalRulePlugin} from '@lexical/react/LexicalHorizontalRulePlugin';
-import ImagesPlugin from './Images';
+import Images from './Images';
 import {TablePlugin} from '@lexical/react/LexicalTablePlugin';
 import TableCellActionMenu from './TableActionMenu';
 import TableCellResizer from './TableCellResizer';
@@ -98,7 +98,7 @@ export default function App() {
           <LexicalClickableLinkPlugin />
           <HorizontalRulePlugin />
           <PageBreak />
-          <ImagesPlugin />
+          <Images />
           <TableCellResizer />
           <HistoryPlugin />
           <Link />

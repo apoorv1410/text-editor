@@ -183,7 +183,7 @@ export function InsertImageDialog({
   );
 }
 
-export default function ImagesPlugin({
+export default function Images({
   captionsEnabled,
 }: {
   captionsEnabled?: boolean;
@@ -192,7 +192,7 @@ export default function ImagesPlugin({
 
   useEffect(() => {
     if (!editor.hasNodes([ImageNode])) {
-      throw new Error('ImagesPlugin: ImageNode not registered on editor');
+      throw new Error('Images: ImageNode not registered on editor');
     }
 
     return mergeRegister(
