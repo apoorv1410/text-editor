@@ -7,11 +7,14 @@
  */
 
 import {AutoFocusPlugin} from '@lexical/react/LexicalAutoFocusPlugin';
+import {ClearEditorPlugin} from '@lexical/react/LexicalClearEditorPlugin';
 import {LexicalComposer} from '@lexical/react/LexicalComposer';
 import {ContentEditable} from '@lexical/react/LexicalContentEditable';
 import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
 import {HistoryPlugin} from '@lexical/react/LexicalHistoryPlugin';
 import {RichTextPlugin} from '@lexical/react/LexicalRichTextPlugin';
+import {ListPlugin} from '@lexical/react/LexicalListPlugin';
+import {CheckListPlugin} from '@lexical/react/LexicalCheckListPlugin';
 import {HorizontalRulePlugin} from '@lexical/react/LexicalHorizontalRulePlugin';
 
 import Nodes from '../nodes/Nodes';
@@ -19,6 +22,7 @@ import Toolbar from './Toobar';
 import TreeView from './TreeView';
 import PageBreak from './PageBreak';
 import './TextEditor.css'
+import PlaygroundEditorTheme from '../themes/PlaygroundEditorTheme';
 
 // function to show the placeholder text in empty editor
 function Placeholder() {
@@ -31,7 +35,8 @@ const editorConfig = {
   // Handling of errors during update
   onError(error: Error) {
     throw error;
-  }
+  },
+  theme: PlaygroundEditorTheme
 };
 
 export default function App() {
@@ -45,10 +50,13 @@ export default function App() {
             placeholder={<Placeholder />}
             ErrorBoundary={LexicalErrorBoundary}
           />
+          <ListPlugin />
+          <CheckListPlugin />
           <HorizontalRulePlugin />
           <PageBreak />
           <HistoryPlugin />
           <AutoFocusPlugin />
+          <ClearEditorPlugin />
           <TreeView />
         </div>
       </div>
