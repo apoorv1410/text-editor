@@ -16,6 +16,7 @@ import {RichTextPlugin} from '@lexical/react/LexicalRichTextPlugin';
 import Nodes from '../nodes/Nodes';
 import Toolbar from './Toobar';
 import TreeView from './TreeView';
+import PageBreak from './PageBreak';
 import './TextEditor.css'
 
 // function to show the placeholder text in empty editor
@@ -43,6 +44,7 @@ export default function App() {
             placeholder={<Placeholder />}
             ErrorBoundary={LexicalErrorBoundary}
           />
+          <PageBreak />
           <HistoryPlugin />
           <AutoFocusPlugin />
           <TreeView />

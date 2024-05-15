@@ -17,6 +17,7 @@ import {HorizontalRuleNode} from '@lexical/react/LexicalHorizontalRuleNode';
 import {HeadingNode, QuoteNode} from '@lexical/rich-text';
 import {TableCellNode, TableNode, TableRowNode} from '@lexical/table';
 import {ImageNode} from './ImageNode';
+import {PageBreakNode} from './PageBreakNode';
 
 const PlaygroundNodes: Array<Klass<LexicalNode>> = [
     CodeHighlightNode,
@@ -33,7 +34,8 @@ const PlaygroundNodes: Array<Klass<LexicalNode>> = [
     TableNode,
     TableCellNode,
     TableRowNode,
-    ImageNode
+    ImageNode,
+    PageBreakNode
 ];
 
 export default PlaygroundNodes;
