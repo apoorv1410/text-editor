@@ -23,7 +23,6 @@
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
     "lexical": "^0.15.0",
-    "lexical-text-editor": "^0.1.0",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
@@ -32,9 +31,6 @@
     "start": "PORT=5000 react-scripts start",
     "rollup": "rollup -c --bundleConfigAsCjs",
     "build-watch": "rollup -c -w",
-    "start-playground": "cd playground && npm run start",
-    "i-all": "npm i && cd playground && npm i",
-    "dev": "npm-run-all --parallel build-watch start-playground",
     "test": "PORT=5000 react-scripts test",
     "eject": "react-scripts eject"
   },
