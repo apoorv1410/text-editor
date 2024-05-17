@@ -46,7 +46,19 @@ const editorConfig = {
   theme: PlaygroundEditorTheme,
 };
 
-export default function App() {
+export default function TextEditor({
+  showToolbar = true,
+  showFloatingToolbar = true,
+  showInsertDropDown = true,
+  showUndoRedoButtons = true,
+  showFontFamilyOptions = true
+}: {
+  showToolbar: Boolean
+  showFloatingToolbar: Boolean
+  showInsertDropDown: Boolean
+  showUndoRedoButtons: Boolean,
+  showFontFamilyOptions: Boolean
+}) {
   const placeHolderText = "Enter Some Rich Text!"
   const [floatingAnchorElem, setFloatingAnchorElem] = useState<HTMLDivElement | null>(null);
   const [isSmallWidthViewport, setIsSmallWidthViewport] = useState<boolean>(false);
@@ -80,7 +92,7 @@ export default function App() {
   return (
     <LexicalComposer initialConfig={editorConfig}>
       <div className="editor-container">
-        <Toolbar />
+        {showToolbar && <Toolbar showInsertDropDown={showInsertDropDown} showUndoRedoButtons={showUndoRedoButtons} showFontFamilyOptions={showFontFamilyOptions} />}
         <div className="bg-white relative">
           <RichTextPlugin
             contentEditable={
@@ -118,10 +130,10 @@ export default function App() {
                   isLinkEditMode={isLinkEditMode}
                   setIsLinkEditMode={setIsLinkEditMode}
                 />
-                <FloatingTextFormatToolbar
+                {showFloatingToolbar && <FloatingTextFormatToolbar
                   anchorElem={floatingAnchorElem}
                   setIsLinkEditMode={setIsLinkEditMode}
-                />
+                />}
               </>
             )}
         </div>

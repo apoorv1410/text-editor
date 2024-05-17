@@ -499,7 +499,15 @@ function ElementFormatDropdown({
   );
 }
 
-export default function ToolbarPlugin(): JSX.Element {
+export default function ToolbarPlugin({
+  showInsertDropDown = true,
+  showUndoRedoButtons = true,
+  showFontFamilyOptions = true
+}: {
+  showInsertDropDown: Boolean,
+  showUndoRedoButtons: Boolean,
+  showFontFamilyOptions: Boolean
+}): JSX.Element {
   const [editor] = useLexicalComposerContext();
   const [activeEditor, setActiveEditor] = useState(editor);
   const [blockType, setBlockType] =
@@ -816,29 +824,33 @@ export default function ToolbarPlugin(): JSX.Element {
 
   return (
     <div className="toolbar">
-      <button
-        disabled={!canUndo || !isEditable}
-        onClick={() => {
-          activeEditor.dispatchCommand(UNDO_COMMAND, undefined);
-        }}
-        title={IS_APPLE ? 'Undo (⌘Z)' : 'Undo (Ctrl+Z)'}
-        type="button"
-        className="toolbar-item spaced"
-        aria-label="Undo">
-        <i className="format undo" />
-      </button>
-      <button
-        disabled={!canRedo || !isEditable}
-        onClick={() => {
-          activeEditor.dispatchCommand(REDO_COMMAND, undefined);
-        }}
-        title={IS_APPLE ? 'Redo (⌘Y)' : 'Redo (Ctrl+Y)'}
-        type="button"
-        className="toolbar-item"
-        aria-label="Redo">
-        <i className="format redo" />
-      </button>
-      <Divider />
+      {showUndoRedoButtons &&
+        <button
+          disabled={!canUndo || !isEditable}
+          onClick={() => {
+            activeEditor.dispatchCommand(UNDO_COMMAND, undefined);
+          }}
+          title={IS_APPLE ? 'Undo (⌘Z)' : 'Undo (Ctrl+Z)'}
+          type="button"
+          className="toolbar-item spaced"
+          aria-label="Undo">
+          <i className="format undo" />
+        </button>
+      }
+      {showUndoRedoButtons &&
+        <button
+          disabled={!canRedo || !isEditable}
+          onClick={() => {
+            activeEditor.dispatchCommand(REDO_COMMAND, undefined);
+          }}
+          title={IS_APPLE ? 'Redo (⌘Y)' : 'Redo (Ctrl+Y)'}
+          type="button"
+          className="toolbar-item"
+          aria-label="Redo">
+          <i className="format redo" />
+        </button>
+      }
+      {showUndoRedoButtons && <Divider />}
       {blockType in blockTypeToBlockName && activeEditor === editor && (
         <>
           <BlockFormatDropDown
@@ -871,13 +883,15 @@ export default function ToolbarPlugin(): JSX.Element {
         </DropDown>
       ) : (
         <>
+          {showFontFamilyOptions &&
           <FontDropDown
             disabled={!isEditable}
             style={'font-family'}
             value={fontFamily}
             editor={editor}
           />
-          <Divider />
+          }
+          {showFontFamilyOptions && <Divider />}
           <FontSize
             selectionFontSize={fontSize.slice(0, -2)}
             editor={editor}
@@ -1014,7 +1028,7 @@ export default function ToolbarPlugin(): JSX.Element {
             </DropDownItem>
           </DropDown>
           <Divider />
-          <DropDown
+          {showInsertDropDown && <DropDown
             disabled={!isEditable}
             buttonClassName="toolbar-item spaced"
             buttonLabel="Insert"
@@ -1065,7 +1079,7 @@ export default function ToolbarPlugin(): JSX.Element {
               <i className="icon table" />
               <span className="text">Table</span>
             </DropDownItem>
-          </DropDown>
+          </DropDown>}
         </>
       )}
       <Divider />
