@@ -1,5 +1,5 @@
 {
-  "name": "text-editor",
+  "name": "lexical-text-editor",
   "description": "text editor based on lexical",
   "version": "0.1.0",
   "private": false,
