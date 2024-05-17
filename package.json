@@ -1,7 +1,9 @@
 {
   "name": "text-editor",
+  "description": "text editor based on lexical",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "author": "Apoorv Bhatt",
   "main": "dist/index.cjs.ts",
   "module": "dist/index.esm.ts",
   "files": [
