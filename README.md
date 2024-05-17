@@ -4,9 +4,22 @@
 - Packages: @lexical/react ([Ref](https://lexical.dev/docs/intro))
 
 ### How to use this in another ReactJS project
-- integrate Lexical in your project: `npm install --save lexical @lexical/react`
-- In your existing React project, import both the `public` and `src` files from this projects (Both the TS and CSS files)
-- import the `TextEditor` file from src/components and use it wherever you want to add the text editor
+- install the `lexical-text-editor` library in your code
+    - `npm i -D lexical-text-editor`
+- import the library in your required componet
+    - `import { TextEditor } from 'lexical-text-editor';`
+- Connfigurations:
+    - Show/Hide some parts of the text editor:
+    ```
+    <TextEditor
+        showToolbar={true}
+        showFloatingToolbar={true}
+        showInsertDropDown={false}
+        showUndoRedoButtons={true}
+        showFontFamilyOptions={true}
+        showTreeView={false}
+    ></TextEditor>
+    ```
 
 ### Setup from scratch
 
