@@ -7,9 +7,34 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+type Options = {
+  showToolbar: Boolean,
+  showFloatingToolbar: Boolean,
+  showInsertDropDown: Boolean,
+  showUndoRedoButtons: Boolean,
+  showFontFamilyOptions: Boolean,
+  showTreeView: Boolean
+}
+
+const options: Options = {
+    showToolbar: true,
+    showFloatingToolbar: true,
+    showInsertDropDown: true,
+    showUndoRedoButtons: true,
+    showFontFamilyOptions: true,
+    showTreeView: true
+}
 root.render(
   <React.StrictMode>
-    <App />
+    <App
+      showToolbar={options.showToolbar}
+      showFloatingToolbar={options.showFloatingToolbar}
+      showInsertDropDown={options.showInsertDropDown}
+      showUndoRedoButtons={options.showUndoRedoButtons}
+      showFontFamilyOptions={options.showFontFamilyOptions}
+      showTreeView={options.showTreeView}
+    />
   </React.StrictMode>
 );
 

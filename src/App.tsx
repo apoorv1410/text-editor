@@ -10,16 +10,7 @@ type Options = {
   showTreeView: Boolean
 }
 
-const options: Options = {
-    showToolbar: true,
-    showFloatingToolbar: true,
-    showInsertDropDown: true,
-    showUndoRedoButtons: true,
-    showFontFamilyOptions: true,
-    showTreeView: true
-}
-
-function App() {
+function App(options: Options) {
   return (
     <div className="App p-4 editor-shell">
       <TextEditor

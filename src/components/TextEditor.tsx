@@ -46,21 +46,16 @@ const editorConfig = {
   theme: PlaygroundEditorTheme,
 };
 
-export default function TextEditor({
-  showToolbar = true,
-  showFloatingToolbar = true,
-  showInsertDropDown = true,
-  showUndoRedoButtons = true,
-  showFontFamilyOptions = true,
-  showTreeView = true
-}: {
-  showToolbar: Boolean
-  showFloatingToolbar: Boolean
-  showInsertDropDown: Boolean
+type Options = {
+  showToolbar: Boolean,
+  showFloatingToolbar: Boolean,
+  showInsertDropDown: Boolean,
   showUndoRedoButtons: Boolean,
   showFontFamilyOptions: Boolean,
   showTreeView: Boolean
-}) {
+}
+
+export default function TextEditor(options: Options) {
   const placeHolderText = "Enter Some Rich Text!"
   const [floatingAnchorElem, setFloatingAnchorElem] = useState<HTMLDivElement | null>(null);
   const [isSmallWidthViewport, setIsSmallWidthViewport] = useState<boolean>(false);
@@ -94,7 +89,7 @@ export default function TextEditor({
   return (
     <LexicalComposer initialConfig={editorConfig}>
       <div className="editor-container">
-        {showToolbar && <Toolbar showInsertDropDown={showInsertDropDown} showUndoRedoButtons={showUndoRedoButtons} showFontFamilyOptions={showFontFamilyOptions} />}
+        {options.showToolbar && <Toolbar showInsertDropDown={options.showInsertDropDown} showUndoRedoButtons={options.showUndoRedoButtons} showFontFamilyOptions={options.showFontFamilyOptions} />}
         <div className="bg-white relative">
           <RichTextPlugin
             contentEditable={
@@ -119,7 +114,7 @@ export default function TextEditor({
           <DragDropPaste />
           <AutoFocusPlugin />
           <ClearEditorPlugin />
-          {showTreeView && <TreeView />}
+          {options.showTreeView && <TreeView />}
           <TablePlugin />
           {floatingAnchorElem && !isSmallWidthViewport && (
               <>
@@ -132,7 +127,7 @@ export default function TextEditor({
                   isLinkEditMode={isLinkEditMode}
                   setIsLinkEditMode={setIsLinkEditMode}
                 />
-                {showFloatingToolbar && <FloatingTextFormatToolbar
+                {options.showFloatingToolbar && <FloatingTextFormatToolbar
                   anchorElem={floatingAnchorElem}
                   setIsLinkEditMode={setIsLinkEditMode}
                 />}
