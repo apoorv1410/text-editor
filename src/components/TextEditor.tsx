@@ -51,13 +51,15 @@ export default function TextEditor({
   showFloatingToolbar = true,
   showInsertDropDown = true,
   showUndoRedoButtons = true,
-  showFontFamilyOptions = true
+  showFontFamilyOptions = true,
+  showTreeView = true
 }: {
   showToolbar: Boolean
   showFloatingToolbar: Boolean
   showInsertDropDown: Boolean
   showUndoRedoButtons: Boolean,
-  showFontFamilyOptions: Boolean
+  showFontFamilyOptions: Boolean,
+  showTreeView: Boolean
 }) {
   const placeHolderText = "Enter Some Rich Text!"
   const [floatingAnchorElem, setFloatingAnchorElem] = useState<HTMLDivElement | null>(null);
@@ -117,7 +119,7 @@ export default function TextEditor({
           <DragDropPaste />
           <AutoFocusPlugin />
           <ClearEditorPlugin />
-          <TreeView />
+          {showTreeView && <TreeView />}
           <TablePlugin />
           {floatingAnchorElem && !isSmallWidthViewport && (
               <>

@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import TextEditor from './components/TextEditor';
 
@@ -7,20 +6,20 @@ type Options = {
   showFloatingToolbar: Boolean,
   showInsertDropDown: Boolean,
   showUndoRedoButtons: Boolean,
-  showFontFamilyOptions: Boolean
+  showFontFamilyOptions: Boolean,
+  showTreeView: Boolean
 }
 
-function App({
-  options = {
+const options: Options = {
     showToolbar: true,
     showFloatingToolbar: true,
     showInsertDropDown: true,
     showUndoRedoButtons: true,
-    showFontFamilyOptions: true
-  }
-}: {
-  options: Options
-}) {
+    showFontFamilyOptions: true,
+    showTreeView: true
+}
+
+function App() {
   return (
     <div className="App p-4 editor-shell">
       <TextEditor
@@ -29,6 +28,7 @@ function App({
         showInsertDropDown={options.showInsertDropDown}
         showUndoRedoButtons={options.showUndoRedoButtons}
         showFontFamilyOptions={options.showFontFamilyOptions}
+        showTreeView={options.showTreeView}
       ></TextEditor>
     </div>
   );
