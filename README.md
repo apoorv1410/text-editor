@@ -6,10 +6,11 @@
 ### How to use this in another ReactJS project
 - install the `lexical-text-editor` library in your code
     - `npm i -D lexical-text-editor`
-- import the library in your required componet
-    - `import { TextEditor } from 'lexical-text-editor';`
-- import the text-editor CSS file in your `App.css` file
-    - `@import url('lexical-text-editor/TextEditor.css');`
+- import the text-editor component and CSS in your required component:
+    ```
+        import { TextEditor } from 'lexical-text-editor';
+        import 'lexical-text-editor/src/components/TextEditor.css';
+    ```
 - Connfigurations:
     - Show/Hide some parts of the text editor:
     ```
