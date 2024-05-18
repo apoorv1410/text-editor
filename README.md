@@ -8,6 +8,8 @@
     - `npm i -D lexical-text-editor`
 - import the library in your required componet
     - `import { TextEditor } from 'lexical-text-editor';`
+- import the text-editor CSS file in your `App.css` file
+    - `@import url('lexical-text-editor/TextEditor.css');`
 - Connfigurations:
     - Show/Hide some parts of the text editor:
     ```

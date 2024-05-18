@@ -32,7 +32,6 @@ import FloatingLinkEditor from './FloatingLinkEditor';
 import FloatingTextFormatToolbar from './FloatingTextToolbar';
 import TreeView from './TreeView';
 import PageBreak from './PageBreak';
-import './TextEditor.css'
 import PlaygroundEditorTheme from '../themes/PlaygroundEditorTheme';
 
 

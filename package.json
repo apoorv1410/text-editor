@@ -1,7 +1,7 @@
 {
   "name": "lexical-text-editor",
   "description": "text editor based on lexical",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": false,
   "author": "Apoorv Bhatt",
   "main": "dist/index.cjs.ts",

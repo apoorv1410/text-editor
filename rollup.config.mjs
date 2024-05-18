@@ -45,7 +45,8 @@ export default [
       typescript({ tsconfig: "./tsconfig.json" }),
       copy({
         targets: [
-          { src: 'public/icons', dest: 'dist/public' }
+          { src: 'public/icons', dest: 'dist/public' },
+          { src: 'src/components/TextEditor.css', dest: '/' }
         ]
       })
     ],
