@@ -168,19 +168,19 @@
  }
  
  #options-button::after {
-   background-image: url('/public/icons/gear.svg');
+   background-image: url('../../public/icons/gear.svg');
  }
  
  #test-recorder-button::after {
-   background-image: url('/public/icons/journal-code.svg');
+   background-image: url('../../public/icons/journal-code.svg');
  }
  
  #paste-log-button::after {
-   background-image: url('/public/icons/clipboard.svg');
+   background-image: url('../../public/icons/clipboard.svg');
  }
  
  #docs-button::after {
-   background-image: url('/public/icons/file-earmark-text.svg');
+   background-image: url('../../public/icons/file-earmark-text.svg');
  }
  
  #test-recorder-button-snapshot {
@@ -188,15 +188,15 @@
  }
  
  #test-recorder-button-snapshot::after {
-   background-image: url('/public/icons/camera.svg');
+   background-image: url('../../public/icons/camera.svg');
  }
  
  #test-recorder-button-copy::after {
-   background-image: url('/public/icons/clipboard.svg');
+   background-image: url('../../public/icons/clipboard.svg');
  }
  
  #test-recorder-button-download::after {
-   background-image: url('/public/icons/download.svg');
+   background-image: url('../../public/icons/download.svg');
  }
 
  .component-picker-menu {
@@ -213,81 +213,81 @@
  }
  
  i.palette {
-   background-image: url('/public/icons/palette.svg');
+   background-image: url('../../public/icons/palette.svg');
  }
  
  i.bucket {
-   background-image: url('/public/icons/paint-bucket.svg');
+   background-image: url('../../public/icons/paint-bucket.svg');
  }
  
  i.bold {
-   background-image: url('/public/icons/type-bold.svg');
+   background-image: url('../../public/icons/type-bold.svg');
  }
  
  i.italic {
-   background-image: url('/public/icons/type-italic.svg');
+   background-image: url('../../public/icons/type-italic.svg');
  }
  
  i.clear {
-   background-image: url('/public/icons/trash.svg');
+   background-image: url('../../public/icons/trash.svg');
  }
  
  i.code {
-   background-image: url('/public/icons/code.svg');
+   background-image: url('../../public/icons/code.svg');
  }
  
  i.underline {
-   background-image: url('/public/icons/type-underline.svg');
+   background-image: url('../../public/icons/type-underline.svg');
  }
  
  i.strikethrough {
-   background-image: url('/public/icons/type-strikethrough.svg');
+   background-image: url('../../public/icons/type-strikethrough.svg');
  }
  
  i.subscript {
-   background-image: url('/public/icons/type-subscript.svg');
+   background-image: url('../../public/icons/type-subscript.svg');
  }
  
  i.superscript {
-   background-image: url('/public/icons/type-superscript.svg');
+   background-image: url('../../public/icons/type-superscript.svg');
  }
  
  i.link {
-   background-image: url('/public/icons/link.svg');
+   background-image: url('../../public/icons/link.svg');
  }
  
  i.horizontal-rule {
-   background-image: url('/public/icons/horizontal-rule.svg');
+   background-image: url('../../public/icons/horizontal-rule.svg');
  }
  
  .icon.plus {
-   background-image: url('/public/icons/plus.svg');
+   background-image: url('../../public/icons/plus.svg');
  }
  
  .icon.caret-right {
-   background-image: url('/public/icons/caret-right-fill.svg');
+   background-image: url('../../public/icons/caret-right-fill.svg');
  }
  
  .icon.dropdown-more {
-   background-image: url('/public/icons/dropdown-more.svg');
+   background-image: url('../../public/icons/dropdown-more.svg');
  }
  
  .icon.font-color {
-   background-image: url('/public/icons/font-color.svg');
+   background-image: url('../../public/icons/font-color.svg');
  }
  
  .icon.font-family {
-   background-image: url('/public/icons/font-family.svg');
+   background-image: url('../../public/icons/font-family.svg');
  }
  
  .icon.bg-color {
-   background-image: url('/public/icons/bg-color.svg');
+   background-image: url('../../public/icons/bg-color.svg');
  }
  
  .icon.table {
    background-color: #6c757d;
-   mask-image: url('/public/icons/table.svg');
-   -webkit-mask-image: url('/public/icons/table.svg');
+   mask-image: url('../../public/icons/table.svg');
+   -webkit-mask-image: url('../../public/icons/table.svg');
    mask-repeat: no-repeat;
    -webkit-mask-repeat: no-repeat;
    mask-size: contain;
@@ -295,132 +295,132 @@
  }
  
  i.image {
-   background-image: url('/public/icons/file-image.svg');
+   background-image: url('../../public/icons/file-image.svg');
  }
  
  i.table {
-   background-image: url('/public/icons/table.svg');
+   background-image: url('../../public/icons/table.svg');
  }
  
  i.close {
-   background-image: url('/public/icons/close.svg');
+   background-image: url('../../public/icons/close.svg');
  }
  
  i.figma {
-   background-image: url('/public/icons/figma.svg');
+   background-image: url('../../public/icons/figma.svg');
  }
  
  i.poll {
-   background-image: url('/public/icons/card-checklist.svg');
+   background-image: url('../../public/icons/card-checklist.svg');
  }
  
  i.columns {
-   background-image: url('/public/icons/3-columns.svg');
+   background-image: url('../../public/icons/3-columns.svg');
  }
  
  i.tweet {
-   background-image: url('/public/icons/tweet.svg');
+   background-image: url('../../public/icons/tweet.svg');
  }
  
  i.youtube {
-   background-image: url('/public/icons/youtube.svg');
+   background-image: url('../../public/icons/youtube.svg');
  }
  
  .icon.left-align,
  i.left-align {
-   background-image: url('/public/icons/text-left.svg');
+   background-image: url('../../public/icons/text-left.svg');
  }
  
  .icon.center-align,
  i.center-align {
-   background-image: url('/public/icons/text-center.svg');
+   background-image: url('../../public/icons/text-center.svg');
  }
  
  .icon.right-align,
  i.right-align {
-   background-image: url('/public/icons/text-right.svg');
+   background-image: url('../../public/icons/text-right.svg');
  }
  
  .icon.justify-align,
  i.justify-align {
-   background-image: url('/public/icons/justify.svg');
+   background-image: url('../../public/icons/justify.svg');
  }
  
  i.indent {
-   background-image: url('/public/icons/indent.svg');
+   background-image: url('../../public/icons/indent.svg');
  }
  
  i.markdown {
-   background-image: url('/public/icons/markdown.svg');
+   background-image: url('../../public/icons/markdown.svg');
  }
  
  i.outdent {
-   background-image: url('/public/icons/outdent.svg');
+   background-image: url('../../public/icons/outdent.svg');
  }
  
  i.undo {
-   background-image: url('/public/icons/arrow-counterclockwise.svg');
+   background-image: url('../../public/icons/arrow-counterclockwise.svg');
  }
  
  i.redo {
-   background-image: url('/public/icons/arrow-clockwise.svg');
+   background-image: url('../../public/icons/arrow-clockwise.svg');
  }
  
  i.sticky {
-   background-image: url('/public/icons/sticky.svg');
+   background-image: url('../../public/icons/sticky.svg');
  }
  
  i.mic {
-   background-image: url('/public/icons/mic.svg');
+   background-image: url('../../public/icons/mic.svg');
  }
  
  i.import {
-   background-image: url('/public/icons/upload.svg');
+   background-image: url('../../public/icons/upload.svg');
  }
  
  i.export {
-   background-image: url('/public/icons/download.svg');
+   background-image: url('../../public/icons/download.svg');
  }
  
  i.share {
-   background-image: url('/public/icons/send.svg');
+   background-image: url('../../public/icons/send.svg');
  }
  
  i.diagram-2 {
-   background-image: url('/public/icons/diagram-2.svg');
+   background-image: url('../../public/icons/diagram-2.svg');
  }
  
  i.user {
-   background-image: url('/public/icons/user.svg');
+   background-image: url('../../public/icons/user.svg');
  }
  
  i.equation {
-   background-image: url('/public/icons/plus-slash-minus.svg');
+   background-image: url('../../public/icons/plus-slash-minus.svg');
  }
  
  i.gif {
-   background-image: url('/public/icons/filetype-gif.svg');
+   background-image: url('../../public/icons/filetype-gif.svg');
  }
  
  i.copy {
-   background-image: url('/public/icons/copy.svg');
+   background-image: url('../../public/icons/copy.svg');
  }
  
  i.success {
-   background-image: url('/public/icons/success.svg');
+   background-image: url('../../public/icons/success.svg');
  }
  
  i.prettier {
-   background-image: url('/public/icons/prettier.svg');
+   background-image: url('../../public/icons/prettier.svg');
  }
  
  i.prettier-error {
-   background-image: url('/public/icons/prettier-error.svg');
+   background-image: url('../../public/icons/prettier-error.svg');
  }
  
  i.page-break,
  .icon.page-break {
-   background-image: url('/public/icons/scissors.svg');
+   background-image: url('../../public/icons/scissors.svg');
  }
  
  .link-editor .button.active,
@@ -465,7 +465,7 @@
  }
  
  .link-editor div.link-edit {
-   background-image: url('/public/icons/pencil-fill.svg');
+   background-image: url('../../public/icons/pencil-fill.svg');
    background-size: 16px;
    background-position: center;
    background-repeat: no-repeat;
@@ -479,7 +479,7 @@
  }
  
  .link-editor div.link-trash {
-   background-image: url('/public/icons/trash.svg');
+   background-image: url('../../public/icons/trash.svg');
    background-size: 16px;
    background-position: center;
    background-repeat: no-repeat;
@@ -493,7 +493,7 @@
  }
  
  .link-editor div.link-cancel {
-   background-image: url('/public/icons/close.svg');
+   background-image: url('../../public/icons/close.svg');
    background-size: 16px;
    background-position: center;
    background-repeat: no-repeat;
@@ -508,7 +508,7 @@
  }
  
  .link-editor div.link-confirm {
-   background-image: url('/public/icons/success-alt.svg');
+   background-image: url('../../public/icons/success-alt.svg');
    background-size: 16px;
    background-position: center;
    background-repeat: no-repeat;
@@ -661,54 +661,54 @@
  }
  
  .icon.paragraph {
-   background-image: url('/public/icons/text-paragraph.svg');
+   background-image: url('../../public/icons/text-paragraph.svg');
  }
  
  .icon.h1 {
-   background-image: url('/public/icons/type-h1.svg');
+   background-image: url('../../public/icons/type-h1.svg');
  }
  
  .icon.h2 {
-   background-image: url('/public/icons/type-h2.svg');
+   background-image: url('../../public/icons/type-h2.svg');
  }
  
  .icon.h3 {
-   background-image: url('/public/icons/type-h3.svg');
+   background-image: url('../../public/icons/type-h3.svg');
  }
  
  .icon.h4 {
-   background-image: url('/public/icons/type-h4.svg');
+   background-image: url('../../public/icons/type-h4.svg');
  }
  
  .icon.h5 {
-   background-image: url('/public/icons/type-h5.svg');
+   background-image: url('../../public/icons/type-h5.svg');
  }
  
  .icon.h6 {
-   background-image: url('/public/icons/type-h6.svg');
+   background-image: url('../../public/icons/type-h6.svg');
  }
  
  .icon.bullet-list,
  .icon.bullet {
-   background-image: url('/public/icons/list-ul.svg');
+   background-image: url('../../public/icons/list-ul.svg');
  }
  
  .icon.check-list,
  .icon.check {
-   background-image: url('/public/icons/square-check.svg');
+   background-image: url('../../public/icons/square-check.svg');
  }
  
  .icon.numbered-list,
  .icon.number {
-   background-image: url('/public/icons/list-ol.svg');
+   background-image: url('../../public/icons/list-ol.svg');
  }
  
  .icon.quote {
-   background-image: url('/public/icons/chat-square-quote.svg');
+   background-image: url('../../public/icons/chat-square-quote.svg');
  }
  
  .icon.code {
-   background-image: url('/public/icons/code.svg');
+   background-image: url('../../public/icons/code.svg');
  }
 
  #rich-text-switch {
@@ -789,7 +789,7 @@
  .editor-shell .editor-image .image-edit-button {
    border: 1px solid rgba(0, 0, 0, 0.3);
    border-radius: 5px;
-   background-image: url('/public/icons/pencil-fill.svg');
+   background-image: url('../../public/icons/pencil-fill.svg');
    background-size: 16px;
    background-position: center;
    background-repeat: no-repeat;
@@ -886,51 +886,51 @@
  }
  
  .actions i.indent {
-   background-image: url('/public/icons/indent.svg');
+   background-image: url('../../public/icons/indent.svg');
  }
  
  .actions i.outdent {
-   background-image: url('/public/icons/outdent.svg');
+   background-image: url('../../public/icons/outdent.svg');
  }
  
  .actions i.lock {
-   background-image: url('/public/icons/lock-fill.svg');
+   background-image: url('../../public/icons/lock-fill.svg');
  }
  
  .actions i.image {
-   background-image: url('/public/icons/file-image.svg');
+   background-image: url('../../public/icons/file-image.svg');
  }
  
  .actions i.table {
-   background-image: url('/public/icons/table.svg');
+   background-image: url('../../public/icons/table.svg');
  }
  
  .actions i.unlock {
-   background-image: url('/public/icons/lock.svg');
+   background-image: url('../../public/icons/lock.svg');
  }
  
  .actions i.left-align {
-   background-image: url('/public/icons/text-left.svg');
+   background-image: url('../../public/icons/text-left.svg');
  }
  
  .actions i.center-align {
-   background-image: url('/public/icons/text-center.svg');
+   background-image: url('../../public/icons/text-center.svg');
  }
  
  .actions i.right-align {
-   background-image: url('/public/icons/text-right.svg');
+   background-image: url('../../public/icons/text-right.svg');
  }
  
  .actions i.justify-align {
-   background-image: url('/public/icons/justify.svg');
+   background-image: url('../../public/icons/justify.svg');
  }
  
  .actions i.disconnect {
-   background-image: url('/public/icons/plug.svg');
+   background-image: url('../../public/icons/plug.svg');
  }
  
  .actions i.connect {
-   background-image: url('/public/icons/plug-fill.svg');
+   background-image: url('../../public/icons/plug-fill.svg');
  }
  
  .table-cell-action-button-container {
@@ -959,7 +959,7 @@
    display: inline-block;
    height: 8px;
    width: 8px;
-   background-image: url('/public/icons/chevron-down.svg');
+   background-image: url('../../public/icons/chevron-down.svg');
  }
 
  .debug-treetype-button {
