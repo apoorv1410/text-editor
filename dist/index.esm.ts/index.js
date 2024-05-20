@@ -1,4 +1,4 @@
-export { s as TextEditor } from './index-2qr1ekP2.js';
+export { t as TextEditor } from './index-R66-M8SE.js';
 import 'react';
 import 'react-dom';
 //# sourceMappingURL=index.js.map

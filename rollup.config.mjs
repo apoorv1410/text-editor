@@ -4,7 +4,6 @@ import typescript from "@rollup/plugin-typescript";
 import copy from 'rollup-plugin-copy'
 import postcss from 'rollup-plugin-postcss';
 import pkg from './package.json';
-import postcssModules from 'postcss-modules';
 
 // PostCSS plugins
 import simplevars from 'postcss-simple-vars';
@@ -34,24 +33,16 @@ export default [
     plugins: [
       postcss({
         extensions: [ '.css' ],
-        autoModules: true,
-        extract: true,
+        modules: {
+          generateScopedName: (name, _filename, css) => {
+            const i = css.indexOf(`.${name}`);
+            const lineNumber = css.substr(0, i).split(/[\r\n]/).length;
+            const hash = stringHash(css).toString(36).substr(0, 5);
+          
+            return `_${name}_${hash}_${lineNumber}`;
+          },
+        },
         plugins: [
-          postcssModules({
-            generateScopedName: (name, filename, css) => {
-              let componentName = filename
-                .replace(/\.\w+$/, '')
-                .split('/')
-                .pop();
-
-                const hash = css
-                .split('')
-                .reduce((acc, char) => (acc << 5) - acc + char.charCodeAt(0), 0)
-                .toString(36)
-                .substring(0, 5);
-              return `${componentName}__${name}__${hash}`;
-            },
-          }),
           simplevars(),
           nested(),
           cssnext({ warnForDuplicates: false, }),
