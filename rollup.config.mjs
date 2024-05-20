@@ -33,6 +33,15 @@ export default [
     plugins: [
       postcss({
         extensions: [ '.css' ],
+        modules: {
+          generateScopedName: (name, _filename, css) => {
+            const i = css.indexOf(`.${name}`);
+            const lineNumber = css.substr(0, i).split(/[\r\n]/).length;
+            const hash = stringHash(css).toString(36).substr(0, 5);
+          
+            return `_${name}_${hash}_${lineNumber}`;
+          },
+        },
         plugins: [
           simplevars(),
           nested(),
